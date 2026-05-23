@@ -6,6 +6,9 @@
 我的预设行文结构：
 [例如：领域需求 -> 文献数据瓶颈 -> 现有NLP路线不足 -> 目标材料文本挖掘特异性困难 -> schema/RAG/LLM-prompt必要性]
 
+论文类型：
+[请选择或说明：extraction/database；RAG/literature synthesis；relation prediction；system chart/knowledge graph；hypothesis generation]
+
 材料领域：
 [例如：碳点 / 发光磷光材料 / MOF 固态电解质 / 催化剂 / 高熵合金]
 

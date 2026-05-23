@@ -15,12 +15,13 @@ Score out of 100:
 | Problem trajectory | 12 | The argument moves from material/scientific need to literature bottleneck to method necessity; each paragraph makes the next one necessary. |
 | Narrative coherence | 15 | Paragraph lead-ins, final sentences, and sentence-to-sentence transitions form a causal/contrastive chain rather than a stack of related facts. |
 | User-structure fidelity | 8 | If the user supplied a writing framework, the draft preserves its order, intent, and emphasis while repairing weak logic links. If no user structure was supplied, award these points for a coherent default structure. |
-| Domain evidence card completeness | 8 | Output object, core relation, evidence locations, mis-binding consequence, prior-route bottleneck, and method object are all explicit. |
-| Material/task specificity | 12 | The draft names the target material's variables, relations, evidence types, and wrong scientific conclusion caused by mis-binding. |
+| Paper-type fit | 8 | The draft uses the correct pressure chain for extraction/database, RAG/literature synthesis, relation prediction, system chart/knowledge graph, or hypothesis generation. |
+| Domain evidence card completeness | 6 | Paper type, output object, core relation, evidence locations, mis-binding consequence, prior-route bottleneck, and method object are all explicit. |
+| Material/task specificity | 10 | The draft names the target material's variables, relations, evidence types, and wrong scientific conclusion caused by mis-binding. |
 | Prior-route pressure chain | 8 | Manual/database/rule/NER/domain-model routes are written as `useful part -> technical reason it fails -> unresolved challenge`, not as a survey list. |
-| Evidence discipline | 12 | Major factual claims are cited, source-noted, or marked `需补文献`; no invented references, numbers, first claims, or performance values. |
+| Evidence discipline | 10 | Major factual claims are cited, source-noted, or marked `需补文献`; no invented references, numbers, first claims, or performance values. |
 | Method inevitability | 8 | The final paragraph names the exact method/output object and explains refusal behavior when evidence is absent. |
-| Length and paragraph load | 7 | Default omit-results draft has 1,800-2,400 Chinese characters, or at least 1,500; P1-P4 carry real mechanism/evidence/consequence detail. |
+| Length and paragraph load | 6 | Default omit-results draft has 1,800-2,400 Chinese characters, or at least 1,500; P1-P4 carry real mechanism/evidence/consequence detail. |
 | Nature-style Chinese prose | 7 | Dense, clear, stable terminology, varied sentence rhythm, no slogans, no unjustified method-first opening. |
 | Omission compliance | 3 | If requested, the draft stops before current-paper result/contribution claims. |
 
@@ -50,6 +51,7 @@ If the user structure conflicts with omit-results mode or asks for unsupported c
 
 Apply these gates before accepting a draft:
 
+- If the paper type is misclassified, revise the entire reverse outline and narrative spine before polishing prose.
 - If the Chinese body is below 1,200 characters, it is not a full Introduction.
 - If the Chinese body is 1,200-1,500 characters, it is a short draft and must be expanded unless the user explicitly asks for brevity.
 - If the draft ignores the user's supplied structure without justification, revise the reverse outline.
@@ -60,11 +62,14 @@ Apply these gates before accepting a draft:
 - If the prior-route section is a method list rather than a pressure chain, revise that section.
 - If the material-specific difficulty section does not state a concrete wrong scientific conclusion caused by mis-binding, revise that section.
 - If the method-necessity section says only "schema + evidence + uncertainty" without a domain-specific output object, revise that section.
+- If a RAG/literature-synthesis paper does not discuss citation correctness, coverage, transparency, or verification, revise the method-necessity section.
+- If a hypothesis-generation paper does not define hypothesis value, synergy, scientific grounding, or expert/auditable evaluation, revise the problem trajectory.
+- If a system-chart/knowledge-graph paper flattens the output into a database without node/edge type, direction, mechanism, or source labels, revise the domain evidence card and P4/P5.
 - If user requested omit-results mode and result/contribution claims appear, remove them.
 
 ## Iterative Revision Loop
 
-1. Generate V1 from the domain evidence card, narrative spine, and reverse outline.
+1. Generate V1 from the paper-type route, domain evidence card, narrative spine, and reverse outline.
 2. Evaluate V1 with the rubric and hard gates.
 3. If score is below 85 or any hard gate fails, identify the two weakest dimensions.
 4. If narrative coherence is weak, revise in this order:

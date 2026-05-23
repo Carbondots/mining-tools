@@ -60,11 +60,14 @@ Example transformations:
 - npj Computational Materials-style materials papers spend real space on the material relation chain before claiming a pipeline.
 - Acta/Scripta Materialia examples treat mechanisms and design logic as first-class objects; the extraction task should preserve those objects, not flatten them into values.
 - RAG/LLM benchmarks justify method through citation correctness, coverage, transparency, and expert evaluation rather than through generic LLM capability.
+- Five-article testing shows that paper type is a first-order decision. OpenScholar, ReactionSeek, phosphor relation prediction, system-chart extraction, and design-hypothesis generation need different pressure chains even though all involve literature and LLM/text mining.
+- A design-hypothesis paper should define valuable hypotheses before discussing extraction; a system-chart paper should define graph/chart semantics before discussing LLM; a RAG paper should define citation-grounded synthesis before discussing retrieval.
 
 ## Cross-Domain Gap Detection
 
 After generating drafts for multiple domains, check:
 
+- If drafts for RAG, database extraction, system charts, and hypothesis generation all share the same paragraph logic, add paper-type routing before drafting.
 - If all drafts are structurally correct but under 1,500 Chinese characters, tighten length gates and expand evidence-consequence sentences.
 - If all drafts use the same LLM paragraph, add domain-specific method-object wording.
 - If all drafts mention "unstructured literature" without examples of text/table/figure evidence, expand P2.

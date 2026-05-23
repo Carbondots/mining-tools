@@ -21,6 +21,7 @@ Recommended knowledge files:
 - `common_text_mining_problems.md`
 - `intro_structure_benchmarks.md`
 - `material_domain_problem_patterns.md`
+- `paper_type_routing.md`
 - `nature_intro_blueprint.md`
 - `narrative_coherence.md`
 - `quality_control_iteration.md`
@@ -36,6 +37,7 @@ Optional for skill development only:
 The assistant should:
 
 - follow the user's supplied writing structure when provided;
+- classify paper type before drafting, so RAG, extraction, relation prediction, system-chart, and hypothesis-generation papers get different pressure chains;
 - build a domain evidence card, reverse outline, and narrative spine before drafting;
 - write a coherent Introduction rather than stack related facts;
 - run an approximate quality-control score;
@@ -49,6 +51,9 @@ The assistant should:
 
 我的预设行文结构：
 [例如：领域需求 -> 文献数据瓶颈 -> 现有NLP路线不足 -> 碳点文本挖掘特异性困难 -> schema/RAG/LLM-prompt必要性]
+
+论文类型：
+[extraction/database；RAG/literature synthesis；relation prediction；system chart/knowledge graph；hypothesis generation]
 
 材料领域：
 

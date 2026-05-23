@@ -46,6 +46,7 @@ Upload these files:
 skill/references/common_text_mining_problems.md
 skill/references/intro_structure_benchmarks.md
 skill/references/material_domain_problem_patterns.md
+skill/references/paper_type_routing.md
 skill/references/nature_intro_blueprint.md
 skill/references/narrative_coherence.md
 skill/references/quality_control_iteration.md
@@ -66,6 +67,7 @@ Enable file uploads/knowledge. Web browsing is optional. Use browsing only to ve
 ## Important Behavior
 
 - Follow the user's supplied writing structure when provided.
+- Classify paper type before drafting: extraction/database, RAG/literature synthesis, relation prediction, system chart/knowledge graph, or hypothesis generation.
 - Build a narrative spine before drafting.
 - Do not invent references.
 - Use `需补文献` when evidence is missing.
