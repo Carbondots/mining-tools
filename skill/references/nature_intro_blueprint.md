@@ -1,6 +1,6 @@
 # Nature-Style Chinese Introduction Blueprint
 
-Use this file to draft the Introduction after loading the structure benchmarks and problem patterns.
+Use this file to draft the Introduction after loading the structure benchmarks, problem patterns, and narrative-coherence rules.
 
 ## Drafting Sequence
 
@@ -13,12 +13,33 @@ Use this file to draft the Introduction after loading the structure benchmarks a
    - mis-binding consequence;
    - prior-route bottleneck;
    - method object and refusal behavior.
-3. Build a five-row reverse outline with paragraph role, target length, evidence, and transition.
-4. Draft paragraph by paragraph. Each paragraph must have one message and a first sentence that states that message.
-5. Check claim-evidence alignment after each paragraph.
-6. Check the Chinese body length before polishing. If it is below 1,500 Chinese characters, expand the load-bearing paragraphs before doing sentence-level edits.
-7. Remove the current-paper results paragraph unless requested.
-8. When revising the skill itself, compare the draft against high-impact benchmarks to find reusable writing-rule gaps. Do not include this comparison in ordinary user-facing drafting output.
+3. Check whether the user supplied a rough structure. If yes, map the user's structure into the reverse outline and preserve the user's order unless it breaks evidence discipline or omit-results mode. If no, use the default five-part fallback.
+4. Build a reverse outline with paragraph role, target length, evidence, and transition.
+5. Build a narrative spine: controlling question, paragraph promises, paragraph-to-paragraph bridges, and final method pressure.
+6. Draft paragraph by paragraph. Each paragraph must have one message, a first sentence that states or advances that message, and a last sentence that prepares the next paragraph.
+7. Check claim-evidence alignment after each paragraph.
+8. Check the Chinese body length before polishing. If it is below 1,500 Chinese characters, expand the load-bearing paragraphs before doing sentence-level edits.
+9. Remove the current-paper results paragraph unless requested.
+10. Run the coherence audit before scoring. If the draft reads like stacked material, revise lead-ins and transitions first.
+11. When revising the skill itself, compare the draft against high-impact benchmarks to find reusable writing-rule gaps. Do not include this comparison in ordinary user-facing drafting output.
+
+## User Structure Adaptation
+
+User structure takes priority over the default blueprint. Common user structures include:
+
+- `application importance -> field bottleneck -> literature mining gap -> proposed extraction route`;
+- `existing review consensus -> unresolved data problem -> why current NLP fails -> our method necessity`;
+- `material mechanism -> evidence scattering -> relation extraction challenge -> LLM/RAG schema`;
+- `database/resource gap -> text-mining method gap -> material-specific schema`.
+
+For any user structure:
+
+1. Preserve the user's paragraph order and emphasis.
+2. Add missing output object and evidence discipline inside the user's first suitable paragraph.
+3. Put the prior-route pressure chain in the user-specified gap/method paragraph.
+4. Put the mis-binding consequence in the user-specified difficulty paragraph.
+5. If the user's structure has no place for one of these, add a short bridging sentence rather than a new major section.
+6. Keep the user's structure coherent by writing explicit bridges between the user's parts. Do not solve a weak outline by replacing it with the default five-part template.
 
 ## Paragraph Blueprint
 
@@ -28,20 +49,16 @@ Goal: start from the material problem, not from NLP.
 
 Must include:
 
-- Why this material system matters.
-- Why data-driven or AI-assisted discovery is relevant.
-- The real output object by the second sentence.
-- Which design/search/performance space is too large for intuition alone.
-- One concrete mechanism showing why multiple variables interact.
+- why this material system matters;
+- why data-driven or AI-assisted discovery is relevant;
+- the real output object by the second sentence;
+- which design/search/performance space is too large for intuition alone;
+- one concrete mechanism showing why multiple variables interact;
+- a final sentence that explains why literature-scale evidence is needed.
 
-Avoid:
+Possible logic:
 
-- Generic "AI is developing rapidly".
-- Long application lists with no relation to data.
-
-Possible sentence pattern:
-
-`[材料体系] 因 [关键性质/应用] 成为 [领域] 的重要对象；真正限制数据驱动设计的并不是单个数值缺失，而是缺少能够连接 [核心关系] 的 [输出对象]。然而，其性能优化同时受 [变量组1]、[变量组2] 和 [变量组3] 控制，使经验试错和单篇论文阅读难以支撑系统设计。`
+`field need -> coupled design variables -> missing structured output object -> why single-paper reading or intuition is insufficient -> literature-scale data need`
 
 ### P2: Literature As Latent Data
 
@@ -49,14 +66,15 @@ Goal: explain why papers are the key data source and why they are difficult.
 
 Must include:
 
-- Literature contains the relevant knowledge.
-- The knowledge is dispersed across text, tables, figures, captions, and supplementary files.
-- The desired output is sample-level, field-level, or relation-level structured data.
-- At least one example of where each evidence type usually appears.
+- literature contains the relevant knowledge;
+- the knowledge is dispersed across text, tables, figures, captions, and supplementary files;
+- the desired output is sample-level, field-level, or relation-level structured data;
+- at least one example of where each evidence type usually appears;
+- a final sentence that shifts the bottleneck from information existence to evidence binding.
 
-Possible sentence pattern:
+Possible logic:
 
-`这些知识已经大量存在于已发表文献中，但通常以实验叙述、表格、图注和补充信息的形式分散出现；只有将 [字段链] 还原为同一样品的结构化记录，才能支持跨论文比较和后续建模。`
+`knowledge exists -> evidence is fragmented -> output object requires binding -> fragmentation creates extraction rather than reading problem`
 
 ### P3: Existing Routes And Common Bottlenecks
 
@@ -64,14 +82,15 @@ Goal: introduce manual curation, databases, rules, NER, domain models, or RAG on
 
 Must include:
 
-- One or two prior routes.
-- Their useful part, technical limitation, and root reason.
-- The exact unresolved challenge.
-- A transition from entity recognition to relation/evidence binding.
+- one or two prior routes;
+- their useful part, technical limitation, and root reason;
+- the exact unresolved challenge;
+- a transition from entity recognition to relation/evidence binding;
+- a final sentence that opens the material-specific difficulty.
 
-Possible sentence pattern:
+Possible logic:
 
-`人工整理和领域数据库能够提供高置信数据，但其覆盖范围、更新速度和字段完整性难以适应 [材料体系] 的文献增长；基于规则或 NER 的方法可以识别 [实体类型]，却往往难以判断 [关系/绑定问题]，因为相关证据常跨句、跨表格或跨段落出现。换言之，已有路线留下的核心缺口不是缺少实体，而是缺少可复核的 [输出对象]。`
+`manual/database route helps but cannot scale or update -> rule/NER route finds entities but misses relation/evidence binding -> unresolved challenge is complete records -> target material makes this failure scientifically consequential`
 
 ### P4: Material-Specific Difficulty
 
@@ -79,14 +98,15 @@ Goal: make the Introduction belong to the target material, not to any text-minin
 
 Must include:
 
-- The material-specific relation chain.
-- Concrete field examples.
-- Why wrong binding changes scientific meaning.
-- A mis-binding consequence sentence that explains what scientific conclusion would become wrong.
+- the material-specific relation chain;
+- concrete field examples;
+- why wrong binding changes scientific meaning;
+- a mis-binding consequence sentence that explains what scientific conclusion would become wrong;
+- a final sentence that makes constrained LLM/RAG/schema extraction necessary.
 
-Possible sentence pattern:
+Possible logic:
 
-`在 [材料体系] 中，这一问题更加突出：[变量A] 与 [变量B] 并非独立字段，而是共同决定 [性质/应用] 的条件组合。如果抽取时丢失 [样品编号/步骤顺序/测试条件/表面状态]，同一数值就可能被错误地解释为另一种材料或另一种性能。`
+`general binding problem becomes sharper here -> field-specific variables interact -> evidence appears in separate paper locations -> wrong binding changes the scientific conclusion -> method must preserve evidence and uncertainty`
 
 ### P5: Method Necessity Without Results
 
@@ -94,14 +114,14 @@ Goal: justify LLM-prompt/RAG/schema extraction as the necessary methodological d
 
 Must include:
 
-- Why schema-guided prompt extraction fits the specific challenge.
-- Why evidence preservation is necessary.
-- What exact output object should be produced.
-- What the model must refuse to infer when evidence is absent.
+- why schema-guided prompt extraction fits the specific challenge;
+- why evidence preservation is necessary;
+- what exact output object should be produced;
+- what the model must refuse to infer when evidence is absent.
 
-Possible sentence pattern:
+Possible logic:
 
-`因此，更合适的路径是将 LLM 的上下文理解能力限制在明确的领域 schema、检索证据和可审计输出中，使模型不是概括论文，而是生成带有原文定位、缺失值标记和不确定性说明的 [输出对象]；当 [关键字段/关系] 缺少证据时，模型应保留空缺或标注不确定，而不是用常识补全。`
+`because prior paragraphs establish relation/evidence binding as the root problem -> LLM/RAG/schema is useful only when constrained -> output must include evidence locations and missing-value behavior -> stop before reporting current-paper results`
 
 ## Rhetorical Pattern From High-Impact Benchmarks
 
@@ -119,11 +139,12 @@ Do not make every paragraph the same length. The bottleneck and material-specifi
 
 - Use high-density academic Chinese. Prefer concrete nouns over slogans.
 - Put the paragraph message in the first sentence.
+- End each paragraph with a bridge that makes the next paragraph necessary.
 - Use 5-8 sentences in the two load-bearing paragraphs: existing-route bottleneck and material-specific difficulty.
 - Let each sentence connect by cause, contrast, consequence, refinement, or example.
 - Use stable terms for material objects and method objects.
 - Use cautious verbs for unresolved claims: "有望", "可用于", "需要", "提示", "限制".
-- Prefer short transitions: "然而", "因此", "更关键的是", "在这一背景下".
+- Prefer short transitions only when they carry logic: "然而", "因此", "更关键的是", "在这一背景下".
 - Avoid decorative phrases such as "在当今快速发展的时代", "具有划时代意义", "开启新范式" unless the evidence supports them.
 - Avoid synonym cycling. Technical repetition is clarity.
 - Vary sentence length. Short sentences should mark a conceptual turn; longer sentences should carry mechanism and evidence.
@@ -134,7 +155,7 @@ For every main claim, attach one of:
 
 - a normal citation marker supplied by the user,
 - a source note from the local evidence table,
-- `需补文献 [claim type]`.
+- `需补文献[claim type]`.
 
 Never turn a source note into a formal citation if the reference entry is missing.
 

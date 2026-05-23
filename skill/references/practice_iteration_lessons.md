@@ -9,7 +9,7 @@ An earlier stress test used generated domains and a quantitative script. That te
 New rule:
 
 - Use published high-impact Introductions as development benchmarks when improving the skill.
-- Do not expose numerical rubrics or script outputs in normal user-facing skill results.
+- Use approximate quality-control scoring in normal drafting to decide whether to regenerate; keep it explanatory rather than pretending it is an objective journal decision.
 - During skill development, compare a generated draft with existing high-quality articles; if the draft is weaker, update the writing requirements and regenerate.
 
 ## Repeated Failure Pattern
@@ -24,6 +24,8 @@ Symptoms:
 - one sentence for material specificity,
 - one sentence for LLM-prompt necessity,
 - little pressure escalation between paragraphs.
+- weak lead-ins: each paragraph starts a new topic instead of inheriting the previous paragraph's unresolved pressure.
+- weak sentence dependence: sentence order can be changed without altering the argument, which signals content stacking rather than reasoning.
 
 ## Top-Journal Density Rule
 
@@ -32,6 +34,14 @@ For every load-bearing paragraph, include the triad:
 1. Scientific mechanism: why the material problem is inherently coupled.
 2. Text/evidence manifestation: where the coupled information appears in papers.
 3. Extraction consequence: what goes wrong if the fields are separated or mis-bound.
+
+Then connect the triads through a narrative spine:
+
+1. The first sentence states the paragraph's claim and echoes the previous paragraph's unresolved issue.
+2. The middle sentences develop mechanism, evidence manifestation, and example in that order.
+3. The final sentence names the consequence that requires the next paragraph.
+
+Do not polish a stacked paragraph by adding more transition words. Rewrite the sentence-function chain.
 
 Example transformations:
 
@@ -61,6 +71,8 @@ After generating drafts for multiple domains, check:
 - If all drafts mention NER but not relation binding, expand P3/P4.
 - If all drafts could swap material names with little change, rewrite P4 from the material problem bank.
 - If all drafts have equal paragraph lengths and repeated transitions, vary pacing according to the benchmark.
+- If all drafts read like a list of correct facts, add a narrative spine and require paragraph final sentences to open the next paragraph.
+- If paragraphs can be swapped without losing meaning, rewrite lead-ins so each paragraph answers the previous one.
 
 ## Domain-Specific Expansion Moves
 
@@ -82,3 +94,7 @@ Accept the draft only when:
 - The material-specific paragraph explains a concrete wrong scientific conclusion caused by extraction failure.
 - The method paragraph states what the LLM must not infer when evidence is absent.
 - The argument has the same kind of problem pressure and detail allocation seen in high-quality benchmark articles.
+- Each paragraph's first sentence is traceable to the previous paragraph's final sentence.
+- Sentence order inside each load-bearing paragraph follows `claim -> reason -> evidence manifestation -> example -> consequence -> bridge`.
+- The draft would become less coherent if its paragraphs or sentences were rearranged.
+- The approximate quality-control score is at least 85, or the remaining weakness is explicitly caused by missing user evidence/citations.
